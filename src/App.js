@@ -7,7 +7,9 @@ import './App.css';
 
 function App() {
 
-  const [card, setCard] = useState(null)
+  
+
+  const [cards, setCards] = useState([])
   const [deckId, setDeckId] = useState(null)
 
   useEffect(() => {
@@ -16,11 +18,18 @@ function App() {
     .then(data => setDeckId(data.deck_id))
   }, [])
 
+  const drawCard = () => {
+    fetch(`https://www.deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`)
+    .then(res => res.json())
+    .then(data => setCards(cards.concat(data.cards)))
+  }
 
 
   return (
     <div className="App">
       {deckId}
+      <button onClick={drawCard} >Draw</button>
+      {cards.map(card => <p key={card.code} >{card.code}</p> )}
     </div>
   );
 }
