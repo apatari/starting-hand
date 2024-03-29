@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
+
+
+
+
 function App() {
+
+  const [card, setCard] = useState(null)
+  const [deckId, setDeckId] = useState(null)
+
+  useEffect(() => {
+    fetch('https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
+    .then(res => res.json())
+    .then(data => setDeckId(data.deck_id))
+  }, [])
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {deckId}
     </div>
   );
 }
