@@ -12,6 +12,7 @@ function Practice() {
                     <h2 className='m-3' >Starting Hand Practice</h2>
                 </Row>
                 <Row className='p-2' >
+                    <Col md={2}></Col>
                     <Col className='d-flex'md={2} >
                         <Button className='' >Draw</Button>
                     </Col>
