@@ -6,6 +6,19 @@ import { Button, Row, Col } from 'react-bootstrap';
 import CardDisplay from './practiceComps/CardDisplay';
 
 function Practice() {
+
+
+    const [cards, setCards] = useState([])
+    const [deckId, setDeckId] = useState("")
+
+    useEffect(() => {
+        
+        fetch('https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
+        .then(res => res.json())
+        .then(data => setDeckId(data.deck_id))
+    }, [])
+
+
     return (
         <div>
             <Col>
@@ -23,6 +36,7 @@ function Practice() {
                     <Col md={3} >
                         Current Streak:
                     </Col>
+                    deck id: {deckId}
                 </Row>
                 <Row>
                     <Col md={3} ></Col>
