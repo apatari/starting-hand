@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 import { make_blank, make_range } from './helpers';
 import { Button, Row, Col } from 'react-bootstrap';
+import CardDisplay from './practiceComps/CardDisplay';
 
 function Practice() {
     return (
@@ -26,7 +27,7 @@ function Practice() {
                 <Row>
                     <Col md={3} ></Col>
                     <Col>
-                        <Row><div className='bg-info'>Cards here</div></Row>
+                        <Row><CardDisplay/></Row>
                         <Row> <div  className='bg-warning'>Guess Buttons</div> </Row>
                         <Row> <div  className='bg-secondary'>Answer Here</div> </Row>
                         
