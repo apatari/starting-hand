@@ -34,6 +34,7 @@ function Practice() {
     }
 
     const range_template = make_blank()
+
     const makePairCode = () => {
         if (cards == []) {
             return ""
@@ -43,6 +44,10 @@ function Practice() {
             if (!Object.keys(range_template).includes(pairCode)) {
                 pairCode = pairCode[1] + pairCode[0]
                 
+            }
+
+            if (cards[0].suit === cards[1].suit) {
+                pairCode += 's'
             }
             setPair(pairCode)
         }
