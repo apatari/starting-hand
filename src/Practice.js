@@ -27,7 +27,7 @@ function Practice() {
     }   
 
     const drawCards = () => {
-        
+        setPair("")
         fetch(`https://www.deckofcardsapi.com/api/deck/${deckId}/draw/?count=2`)
         .then(res => res.json())
         .then(data => setCards(data.cards))
@@ -49,6 +49,7 @@ function Practice() {
             if (cards[0].suit === cards[1].suit) {
                 pairCode += 's'
             }
+            // change this to a return value and get rid of extra state var once this is done testing
             setPair(pairCode)
         }
     }
