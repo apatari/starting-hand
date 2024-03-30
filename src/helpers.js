@@ -17,11 +17,14 @@ function make_blank() {
             acc.push(pair + 's')
         }
     }
-
-    return res.concat(acc)
-    // currently returns an array whose indices are all the right keys needed for a black range
+    const range = {}
 
 
+    for (const pair of res.concat(acc)){
+        range[pair] = false
+    }
+    
+    return range
 
 }
 
