@@ -1,13 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Switch, Route } from 'react-router-dom'
 import { make_blank, make_range } from './helpers';
 import { Button } from 'react-bootstrap';
-import Header from './Header';
+
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Layout from './Layout';
+
+import Practice from './Practice';
+import Ranges from './Ranges';
 
 
 
-function App() {
+export default function App() {
+  const router = createBrowserRouter([
+    {
+      element: <Layout />,
+
+      children: [
+        {
+          path: "/",
+          element: <Practice />
+        },
+        {
+          path: "/ranges",
+          element: <Ranges />
+        }
+      ]
+    }
+  ])
+
+  return (
+    <RouterProvider router={router} />
+  )
+}
 
   
 
@@ -31,15 +56,10 @@ function App() {
   // }
 
 
-  return (
-    <div className="App">
-      {/* {deckId}
-      <Button onClick={drawCard} >Draw</Button>
-      {cards.map(card => <p key={card.code} >{card.code}</p> )} */}
 
-      <Header/>
-    </div>
-  );
-}
+ 
+      // {/* {deckId}
+      // <Button onClick={drawCard} >Draw</Button>
+      // {cards.map(card => <p key={card.code} >{card.code}</p> )} */}
 
-export default App;
+   
