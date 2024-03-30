@@ -19,6 +19,20 @@ function Practice() {
     }, [])
 
 
+    const shuffleCards = () => fetch(`https://www.deckofcardsapi.com/api/deck/${deckId}/shuffle/`)
+
+    const handleDrawClick = () => {
+        shuffleCards().then(drawCards)
+    }   
+
+    const drawCards = () => {
+        
+        fetch(`https://www.deckofcardsapi.com/api/deck/${deckId}/draw/?count=2`)
+        .then(res => res.json())
+        .then(data => setCards(data.cards))
+    }
+
+
     return (
         <div>
             <Col>
@@ -28,7 +42,7 @@ function Practice() {
                 <Row className='p-2' >
                     <Col md={2}></Col>
                     <Col className='d-flex'md={2} >
-                        <Button className='' >Draw</Button>
+                        <Button className='' onClick={handleDrawClick} >Draw</Button>
                     </Col>
                     <Col  className='' md={3} >
                         Position: 
@@ -38,10 +52,10 @@ function Practice() {
                     </Col>
                     deck id: {deckId}
                 </Row>
-                <Row>
+                <Row className='p-2 m-3' >
                     <Col md={3} ></Col>
                     <Col>
-                        <Row><CardDisplay/></Row>
+                        <Row><CardDisplay cards={cards} /></Row>
                         <Row> <div  className='bg-warning'>Guess Buttons</div> </Row>
                         <Row> <div  className='bg-secondary'>Answer Here</div> </Row>
                         

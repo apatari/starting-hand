@@ -1,8 +1,11 @@
 import React from "react";
 
-function CardDisplay() {
+function CardDisplay({ cards }) {
     return (
-        <div className="p-2 bg-info" >Card Display</div>
+        <div className="p-2 bg-info" > <p>Cards:</p>
+            {cards.map(card => <p key={card.code} >{card.code}</p>)}
+        
+        </div>
     )
 }
 
