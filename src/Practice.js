@@ -50,7 +50,7 @@ function Practice() {
                     <Col md={3} >
                         Current Streak:
                     </Col>
-                    deck id: {deckId}
+                    
                 </Row>
                 <Row className='p-2 m-3' >
                     <Col md={3} ></Col>
