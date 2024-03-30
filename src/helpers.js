@@ -1,6 +1,9 @@
 
+
+// Returns an object with a key value pair for each two-card starting hand possibility
+//  The keys are hand codes, such as 'AK' for ace-king, 'AKs' for ace-king suited
 function make_blank() {
-    const VALS = 'A234567890JQK'
+    const VALS = 'AKQJ098765432'
 
     let res = []
 
@@ -28,4 +31,14 @@ function make_blank() {
 
 }
 
-export { make_blank }
+// Takes an array of strings that match keys in a blank range, 
+//   returns a range with those key pointing to 'true'
+function make_range(arr) {
+    const range = make_blank()
+    for (const pair of arr) {
+        range[pair] = true
+    }
+    return range
+}
+
+export { make_blank, make_range }
