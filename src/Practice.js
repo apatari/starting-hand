@@ -10,6 +10,7 @@ function Practice() {
 
     const [cards, setCards] = useState([])
     const [deckId, setDeckId] = useState("")
+    const [pair, setPair] = useState("")
 
     useEffect(() => {
         
@@ -30,6 +31,21 @@ function Practice() {
         fetch(`https://www.deckofcardsapi.com/api/deck/${deckId}/draw/?count=2`)
         .then(res => res.json())
         .then(data => setCards(data.cards))
+    }
+
+    const range_template = make_blank()
+    const makePairCode = () => {
+        if (cards == []) {
+            return ""
+        } else {
+            
+            let pairCode = cards[0].code[0] + cards[1].code[0]
+            if (!Object.keys(range_template).includes(pairCode)) {
+                pairCode = pairCode[1] + pairCode[0]
+                
+            }
+            setPair(pairCode)
+        }
     }
 
 
@@ -61,6 +77,8 @@ function Practice() {
                         
                     </Col>
                     <Col md={3}></Col>
+                    <Button onClick={makePairCode} >Pair</Button>
+                    Pair: {pair}
                 </Row>
             </Col>
         </div>
@@ -69,30 +87,6 @@ function Practice() {
 
 export default Practice
 
-  // const [cards, setCards] = useState([])
-  // const [deckId, setDeckId] = useState(null)
 
-  // useEffect(() => {
-  //   const range = make_range(['AK', 'AKs'])
-  //   console.log(Object.keys(range).length)
-  //   fetch('https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
-  //   .then(res => res.json())
-  //   .then(data => setDeckId(data.deck_id))
-  // }, [])
-
-  // const drawCard = () => {
-  
-    
-  //   fetch(`https://www.deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`)
-  //   .then(res => res.json())
-  //   .then(data => setCards(cards.concat(data.cards)))
-  // }
-
-
-
- 
-      // {/* {deckId}
-      // <Button onClick={drawCard} >Draw</Button>
-      // {cards.map(card => <p key={card.code} >{card.code}</p> )} */}
 
    
