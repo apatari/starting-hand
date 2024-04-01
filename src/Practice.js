@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { make_blank, make_range } from './helpers';
 import { Button, Row, Col } from 'react-bootstrap';
 import CardDisplay from './practiceComps/CardDisplay';
+import { utgRange } from './range_templates';
 
 function Practice() {
 
@@ -33,33 +34,28 @@ function Practice() {
         .then(data => setCards(data.cards))
     }
 
+    const checkRange = () => {
+        let pairCode = cards[0].code[0] + cards[1].code[0]
+        if (!Object.keys(range_template).includes(pairCode)) {
+            pairCode = pairCode[1] + pairCode[0]
+            
+        }
+
+        if (cards[0].suit === cards[1].suit) {
+            pairCode += 's'
+        }
+        console.log(utgRange[pairCode])
+    }
+
     const range_template = make_blank()
 
-    const makePairCode = () => {
-        if (cards == []) {
-            return ""
-        } else {
-            
-            let pairCode = cards[0].code[0] + cards[1].code[0]
-            if (!Object.keys(range_template).includes(pairCode)) {
-                pairCode = pairCode[1] + pairCode[0]
-                
-            }
-
-            if (cards[0].suit === cards[1].suit) {
-                pairCode += 's'
-            }
-            // change this to a return value and get rid of extra state var once this is done testing
-            setPair(pairCode)
-        }
-    }
 
 
     return (
         <div>
             <Col>
                 <Row className='p-2' >
-                    <h2 className='m-3' >Starting Hand Practice</h2>
+                    <h2 className='m-3' >Starting Hand Practice - 6max</h2>
                 </Row>
                 <Row className='p-2' >
                     <Col md={2}></Col>
@@ -83,9 +79,15 @@ function Practice() {
                         
                     </Col>
                     <Col md={3}></Col>
-                    <Button onClick={makePairCode} >Pair</Button>
-                    Pair: {pair}
                 </Row>
+                <Row>
+                    <Col className='d-flex' >
+                        
+                        <Button className='mx-auto' onClick={checkRange} >Check</Button>
+                    </Col>
+
+                </Row>
+                        Pair: {pair}
             </Col>
         </div>
     )
