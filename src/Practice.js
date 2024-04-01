@@ -57,7 +57,7 @@ function Practice() {
                 </Row>
                 <Row className='p-2 m-3' >
                     <Col md={2} ></Col>
-                    <Col>
+                    <Col >
                         <Row className='bg-warning' >  
                         <Col>
                         
@@ -77,7 +77,7 @@ function Practice() {
                         <Row><CardDisplay cards={cards} /></Row>
  
                     </Col>
-                    <Col md={3}></Col>
+                    <Col md={5}></Col>
                 </Row>
                         
             </Col>
