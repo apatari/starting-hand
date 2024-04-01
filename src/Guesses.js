@@ -4,7 +4,7 @@ import { make_blank, make_range } from "./helpers";
 import { utgRange } from "./range_templates";
 
 
-function Guesses({ cards, setResult, show, setShowGuessButtons }) {
+function Guesses({ cards, setResult, show, setShowGuessButtons, streak, setStreak }) {
 
     const range_template = make_blank()
 
@@ -24,18 +24,22 @@ function Guesses({ cards, setResult, show, setShowGuessButtons }) {
         const handleFold = () => {
             setShowGuessButtons(false)
             if (shouldRaise() == false) {
-                setResult("Correct")
+                setResult("Correct - Fold")
+                setStreak(current => current + 1)
             } else {
-                setResult("Wrong")
+                setResult("Fold is Wrong")
+                setStreak(0)
             }
         }
 
         const handleRaise = () => {
             setShowGuessButtons(false)
             if (shouldRaise() == true) {
-                setResult("Correct")
+                setResult("Correct - Raise")
+                setStreak(current => current + 1)
             } else {
-                setResult("Wrong")
+                setResult("Raise is Wrong")
+                setStreak(0)
             }
         }
 

@@ -13,6 +13,7 @@ function Practice() {
     const [deckId, setDeckId] = useState("")
     const [result, setResult] = useState(" ")
     const [showGuessButtons, setShowGuessButtons] = useState(false)
+    const [streak, setStreak] = useState(0)
 
     useEffect(() => {
         
@@ -50,8 +51,8 @@ function Practice() {
                     <Col  className='' md={2} >
                         Position: 
                     </Col>
-                    <Col md={2} >
-                        Current Streak:
+                    <Col md={3} >
+                        Current Streak: {streak}
                     </Col>
                     
                     
@@ -67,6 +68,8 @@ function Practice() {
                                 setResult={setResult}
                                 show={showGuessButtons}
                                 setShowGuessButtons={setShowGuessButtons}
+                                streak={streak}
+                                setStreak={setStreak}
                                 />  
                         </Col>
                         <Col>
