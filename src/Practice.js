@@ -11,7 +11,7 @@ function Practice() {
 
     const [cards, setCards] = useState([])
     const [deckId, setDeckId] = useState("")
-    const [pair, setPair] = useState("")
+    const [result, setResult] = useState("")
 
     useEffect(() => {
         
@@ -28,7 +28,7 @@ function Practice() {
     }   
 
     const drawCards = () => {
-        setPair("")
+        setResult("TEST")
         fetch(`https://www.deckofcardsapi.com/api/deck/${deckId}/draw/?count=2`)
         .then(res => res.json())
         .then(data => setCards(data.cards))
@@ -85,9 +85,13 @@ function Practice() {
                         
                         <Button className='mx-auto' onClick={checkRange} >Check</Button>
                     </Col>
-
                 </Row>
-                        Pair: {pair}
+                <Row>
+                    <Col className='d-flex' >
+                    <h2 className='mx-auto' >{result}</h2>
+                    </Col>
+                </Row>
+                        
             </Col>
         </div>
     )
