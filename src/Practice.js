@@ -57,10 +57,10 @@ function Practice() {
                 <Row className='p-2 m-3' >
                     <Col md={3} ></Col>
                     <Col>
-                        <Row><CardDisplay cards={cards} /></Row>
                         <Row> <div  className='bg-warning'> <Guesses cards={cards} setResult={setResult} /> </div> </Row>
                         <Row> <div  className='bg-secondary'>{result}</div> </Row>
-                        
+                        <Row><CardDisplay cards={cards} /></Row>
+ 
                     </Col>
                     <Col md={3}></Col>
                 </Row>
