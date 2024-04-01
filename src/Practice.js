@@ -25,6 +25,7 @@ function Practice() {
 
     const handleDrawClick = () => {
         shuffleCards().then(drawCards)
+        setShowGuessButtons(true)
     }   
 
     const drawCards = () => {
@@ -57,7 +58,14 @@ function Practice() {
                 <Row className='p-2 m-3' >
                     <Col md={3} ></Col>
                     <Col>
-                        <Row> <div  className='bg-warning'> <Guesses cards={cards} setResult={setResult} /> </div> </Row>
+                        <Row> <div  className='bg-warning'> 
+                            <Guesses 
+                                cards={cards} 
+                                setResult={setResult}
+                                show={showGuessButtons}
+                                setShowGuessButtons={setShowGuessButtons}
+                            />  
+                        </div></Row>
                         <Row> <div  className='bg-secondary'>{result}</div> </Row>
                         <Row><CardDisplay cards={cards} /></Row>
  
