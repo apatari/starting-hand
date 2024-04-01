@@ -11,7 +11,7 @@ function Practice() {
 
     const [cards, setCards] = useState([])
     const [deckId, setDeckId] = useState("")
-    const [result, setResult] = useState("")
+    const [result, setResult] = useState(" ")
     const [showGuessButtons, setShowGuessButtons] = useState(false)
 
     useEffect(() => {
@@ -56,17 +56,24 @@ function Practice() {
                     
                 </Row>
                 <Row className='p-2 m-3' >
-                    <Col md={3} ></Col>
+                    <Col md={2} ></Col>
                     <Col>
-                        <Row> <div  className='bg-warning'> 
+                        <Row className='bg-warning' >  
+                        <Col>
+                        
                             <Guesses 
                                 cards={cards} 
                                 setResult={setResult}
                                 show={showGuessButtons}
                                 setShowGuessButtons={setShowGuessButtons}
-                            />  
-                        </div></Row>
-                        <Row> <div  className='bg-secondary'>{result}</div> </Row>
+                                />  
+                        </Col>
+                        <Col>
+                            <h2 className='m-3' >{result}</h2>
+                        </Col>
+                            
+                        </Row>
+                        
                         <Row><CardDisplay cards={cards} /></Row>
  
                     </Col>

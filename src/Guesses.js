@@ -42,9 +42,9 @@ function Guesses({ cards, setResult, show, setShowGuessButtons }) {
     if (show == false) {
         return (
             <div className="" >
-            <Button className="m-3 ms-4" disabled >Fold</Button>
-            <Button className="m-3" disabled >Raise</Button>
-        </div>
+                <Button className="m-3 ms-4" disabled >Fold</Button>
+                <Button className="m-3" disabled >Raise</Button>
+            </div>
         )
     }
 
