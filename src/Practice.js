@@ -44,15 +44,16 @@ function Practice() {
                 </Row>
                 <Row className='p-2' >
                     <Col md={2}></Col>
-                    <Col className='d-flex'md={2} >
+                    <Col className='d-flex'md={1} >
                         <Button className='' onClick={handleDrawClick} >Draw</Button>
                     </Col>
-                    <Col  className='' md={3} >
+                    <Col  className='' md={2} >
                         Position: 
                     </Col>
-                    <Col md={3} >
+                    <Col md={2} >
                         Current Streak:
                     </Col>
+                    
                     
                 </Row>
                 <Row className='p-2 m-3' >
