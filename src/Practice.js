@@ -11,7 +11,7 @@ function Practice() {
 
     const [cards, setCards] = useState([])
     const [deckId, setDeckId] = useState("")
-    const [result, setResult] = useState(" ")
+    const [result, setResult] = useState("")
     const [showGuessButtons, setShowGuessButtons] = useState(false)
     const [streak, setStreak] = useState(0)
 
@@ -25,12 +25,13 @@ function Practice() {
     const shuffleCards = () => fetch(`https://www.deckofcardsapi.com/api/deck/${deckId}/shuffle/`)
 
     const handleDrawClick = () => {
+        setResult("")
         shuffleCards().then(drawCards)
         setShowGuessButtons(true)
     }   
 
     const drawCards = () => {
-        setResult("")
+        
         fetch(`https://www.deckofcardsapi.com/api/deck/${deckId}/draw/?count=2`)
         .then(res => res.json())
         .then(data => setCards(data.cards))
