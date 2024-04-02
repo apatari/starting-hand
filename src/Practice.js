@@ -15,6 +15,7 @@ function Practice() {
     const [result, setResult] = useState("")
     const [showGuessButtons, setShowGuessButtons] = useState(false)
     const [streak, setStreak] = useState(0)
+    const [pos, setPos] = useState("-")
 
     useEffect(() => {
         
@@ -46,15 +47,16 @@ function Practice() {
                     <h2 className='m-3' >Starting Hand Practice - 6max</h2>
                 </Row>
                 <Row className='p-2' >
-                    <Col md={2}></Col>
+                    <Col md={1}></Col>
                     <Col className='d-flex'md={1} >
-                        <Button className='' onClick={handleDrawClick} >Draw</Button>
+                        <Button className='ms-auto' onClick={handleDrawClick} >Draw</Button>
                     </Col>
-                    <Col  className='' md={2} >
-                        <Position /> 
+                    <Col  className='' md={4} >
+                        <Position pos={pos} setPos={setPos} /> 
                     </Col>
                     <Col md={3} >
                         Current Streak: {streak}
+                        pos: {pos}
                     </Col>
                     
                     
