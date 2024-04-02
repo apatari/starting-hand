@@ -25,11 +25,16 @@ const BTN_HANDS = CO_HANDS.concat(['K4s', 'K3s', 'K2s', 'Q7s', 'Q6s',
 
     const btnRange = make_range(BTN_HANDS)
 
-const SB_RANGE = BTN_HANDS.concat(['Q4s','Q3s','Q2s','J6s','J5s','J4s','J3s',
+const SB_HANDS = BTN_HANDS.concat(['Q4s','Q3s','Q2s','J6s','J5s','J4s','J3s',
     'J2s','05s','04s','03s','02s','95s','94s','K8','Q8','J8','08','84s','K7',
     'Q7','J7','07','97','87','74s','73s','K6','86','76','63s','K5','75','65',
     '52s','64','54','42s','A3','32s','A2'])
 
-const sbRange = make_range(SB_RANGE)
+const sbRange = make_range(SB_HANDS)
 
-export { utgRange, mpRange, coRange, btnRange, sbRange }
+const BB_HANDS = SB_HANDS.concat(['93s','92s','83s','82s','72s','62s','Q6','96',
+    'Q5','95','85','K4','Q4','84','74','K3','Q3','63','53','43','K2','Q2','52','42','32'])
+
+const bbRange = make_range(BB_HANDS)
+
+export { utgRange, mpRange, coRange, btnRange, sbRange, bbRange }
