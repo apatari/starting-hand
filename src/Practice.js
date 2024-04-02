@@ -6,6 +6,7 @@ import { Button, Row, Col } from 'react-bootstrap';
 import CardDisplay from './practiceComps/CardDisplay';
 import { utgRange } from './range_templates';
 import Guesses from './Guesses';
+import Position from './Position';
 
 function Practice() {
 
@@ -50,7 +51,7 @@ function Practice() {
                         <Button className='' onClick={handleDrawClick} >Draw</Button>
                     </Col>
                     <Col  className='' md={2} >
-                        Position: 
+                        <Position /> 
                     </Col>
                     <Col md={3} >
                         Current Streak: {streak}
