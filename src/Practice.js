@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 
-import { Button, Row, Col } from 'react-bootstrap';
+import { Button, Row, Col, Form } from 'react-bootstrap';
 import CardDisplay from './practiceComps/CardDisplay';
 
 import Guesses from './Guesses';
@@ -15,7 +15,7 @@ function Practice() {
     const [showGuessButtons, setShowGuessButtons] = useState(false)
     const [streak, setStreak] = useState(0)
     const [pos, setPos] = useState(0)
-    const [randomize, setRandomize] = useState(true)
+    const [randomize, setRandomize] = useState(false)
 
     const RANGES_LENGTH = 6
 
@@ -52,7 +52,7 @@ function Practice() {
                 <Row className='p-2' >
                     <h2 className='m-3' >Starting Hand Practice - 6max</h2>
                 </Row>
-                <Row className='p-2' >
+                <Row className='p-2 fs-5' >
                     <Col md={1}></Col>
                     <Col className='d-flex' md={1} >
                         <div className=' my-auto'>
@@ -62,6 +62,11 @@ function Practice() {
                     </Col>
                     <Col  className='' md={4} >
                         <Position pos={pos} setPos={setPos} /> 
+                    </Col>
+                    <Col md={3}  >
+                        <Form.Switch 
+                            label={"Randomize Position"}
+                        />
                     </Col>
                     <Col md={2} >
                         Current Streak: {streak}

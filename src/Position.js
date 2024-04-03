@@ -30,13 +30,18 @@ function Position({ pos, setPos }) {
                     
                 </Col>
                 <Col>
+                        
                     <ButtonGroup>
+
                         <Button onClick={handleLeftClick} >{"<-"}</Button>
+
                         <Button variant="info" disabled style={{width: "80px"}} >{rangeNames[pos]}</Button>
-                        <Button onClick={handleRightClick} >{"->"}</Button>
+                        <Button onClick={handleRightClick} >{"->"}</Button> 
                     </ButtonGroup>
+                        
 
                 </Col>
+                
             </Row>
              
 
