@@ -1,10 +1,9 @@
 
 import React, { useEffect, useState } from 'react';
 
-import { make_blank, make_range } from './helpers';
 import { Button, Row, Col } from 'react-bootstrap';
 import CardDisplay from './practiceComps/CardDisplay';
-import { utgRange, ranges } from './range_templates';
+
 import Guesses from './Guesses';
 import Position from './Position';
 

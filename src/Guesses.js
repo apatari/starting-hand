@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import { make_blank, make_range } from "./helpers";
+import { make_blank } from "./helpers";
 import { ranges } from "./range_templates";
 
 

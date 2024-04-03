@@ -1,4 +1,4 @@
-import { make_blank, make_range } from './helpers';
+import { make_range } from './helpers';
 
 const UTG_HANDS = ['AA', 'AKs','AQs','AJs', 'A0s', 'A9s', 'A8s',
     'A5s','A4s','A3s','A2s','AK','KK','KQs','KJs','K0s',
