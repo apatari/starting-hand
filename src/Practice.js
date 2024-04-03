@@ -15,6 +15,9 @@ function Practice() {
     const [showGuessButtons, setShowGuessButtons] = useState(false)
     const [streak, setStreak] = useState(0)
     const [pos, setPos] = useState(0)
+    const [randomize, setRandomize] = useState(true)
+
+    const RANGES_LENGTH = 6
 
     useEffect(() => {
         
@@ -32,6 +35,10 @@ function Practice() {
     }   
 
     const drawCards = () => {
+
+        if (randomize) {
+            setPos(Math.floor(Math.random() * RANGES_LENGTH))
+        }
         
         fetch(`https://www.deckofcardsapi.com/api/deck/${deckId}/draw/?count=2`)
         .then(res => res.json())

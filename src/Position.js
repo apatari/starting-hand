@@ -4,18 +4,18 @@ import { ranges } from "./range_templates";
 
 function Position({ pos, setPos }) {
 
-    const rangesLength = ranges.length
+    const RANGES_LENGTH = 6
     
 
     const handleLeftClick = () => {
         if (pos < 1) {
-            setPos(rangesLength - 1)
+            setPos(RANGES_LENGTH - 1)
         } else {setPos(current => current - 1)}
         
     }
 
     const handleRightClick = () => {
-        if (pos >= rangesLength - 1) {
+        if (pos >= RANGES_LENGTH - 1) {
             setPos(0)
         } else {setPos(current => current + 1)}
     }
