@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col, ButtonGroup, Button } from "react-bootstrap";
 import { ranges } from "./range_templates";
 
-function Position({ pos, setPos }) {
+function Position({ pos, setPos, randomize }) {
 
     const RANGES_LENGTH = 6
     
@@ -33,10 +33,10 @@ function Position({ pos, setPos }) {
                         
                     <ButtonGroup>
 
-                        <Button onClick={handleLeftClick} >{"<-"}</Button>
+                        <Button disabled={randomize===true?true:false} onClick={handleLeftClick} >{"<-"}</Button>
 
                         <Button variant="info" disabled style={{width: "80px"}} >{rangeNames[pos]}</Button>
-                        <Button onClick={handleRightClick} >{"->"}</Button> 
+                        <Button disabled={randomize===true?true:false} onClick={handleRightClick} >{"->"}</Button> 
                     </ButtonGroup>
                         
 

@@ -65,7 +65,7 @@ function Practice() {
                         </div>
                     </Col>
                     <Col  className='' md={4} >
-                        <Position pos={pos} setPos={setPos} /> 
+                        <Position pos={pos} setPos={setPos} randomize={randomize}/> 
                     </Col>
                     <Col md={3}  >
                         <Form.Switch 
