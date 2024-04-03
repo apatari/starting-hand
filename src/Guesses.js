@@ -1,10 +1,10 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { make_blank, make_range } from "./helpers";
-import { utgRange } from "./range_templates";
+import { ranges } from "./range_templates";
 
 
-function Guesses({ cards, setResult, show, setShowGuessButtons, streak, setStreak }) {
+function Guesses({ cards, setResult, show, setShowGuessButtons, pos, setStreak }) {
 
     const range_template = make_blank()
 
@@ -18,7 +18,7 @@ function Guesses({ cards, setResult, show, setShowGuessButtons, streak, setStrea
         if (cards[0].suit === cards[1].suit) {
             pairCode += 's'
         }
-        return (utgRange[pairCode])
+        return (ranges[pos][pairCode])
     }
 
         const handleFold = () => {

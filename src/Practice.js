@@ -77,6 +77,7 @@ function Practice() {
                                 setShowGuessButtons={setShowGuessButtons}
                                 streak={streak}
                                 setStreak={setStreak}
+                                pos={pos}
                                 />  
                         </Col>
                         <Col>
