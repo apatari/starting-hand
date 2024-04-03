@@ -57,9 +57,9 @@ function Practice() {
                     <Col  className='' md={4} >
                         <Position pos={pos} setPos={setPos} /> 
                     </Col>
-                    <Col md={3} >
+                    <Col md={2} >
                         Current Streak: {streak}
-                        pos: {pos}
+                        
                     </Col>
                     
                     
