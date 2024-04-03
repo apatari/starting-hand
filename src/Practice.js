@@ -44,6 +44,10 @@ function Practice() {
         .then(res => res.json())
         .then(data => setCards(data.cards))
     }
+
+    const handleRandomizeClick = () => {
+        setRandomize(current => !current)
+    }
     
 
     return (
@@ -66,6 +70,8 @@ function Practice() {
                     <Col md={3}  >
                         <Form.Switch 
                             label={"Randomize Position"}
+                            checked={randomize}
+                            onChange={handleRandomizeClick}
                         />
                     </Col>
                     <Col md={2} >
