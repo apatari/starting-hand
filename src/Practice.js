@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { make_blank, make_range } from './helpers';
 import { Button, Row, Col } from 'react-bootstrap';
 import CardDisplay from './practiceComps/CardDisplay';
-import { utgRange } from './range_templates';
+import { utgRange, ranges } from './range_templates';
 import Guesses from './Guesses';
 import Position from './Position';
 
@@ -15,7 +15,7 @@ function Practice() {
     const [result, setResult] = useState("")
     const [showGuessButtons, setShowGuessButtons] = useState(false)
     const [streak, setStreak] = useState(0)
-    const [pos, setPos] = useState("-")
+    const [pos, setPos] = useState(0)
 
     useEffect(() => {
         
@@ -48,8 +48,11 @@ function Practice() {
                 </Row>
                 <Row className='p-2' >
                     <Col md={1}></Col>
-                    <Col className='d-flex'md={1} >
-                        <Button className='ms-auto' onClick={handleDrawClick} >Draw</Button>
+                    <Col className='d-flex' md={1} >
+                        <div className=' my-auto'>
+
+                            <Button className='ms-auto' onClick={handleDrawClick} >Draw</Button>
+                        </div>
                     </Col>
                     <Col  className='' md={4} >
                         <Position pos={pos} setPos={setPos} /> 

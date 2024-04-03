@@ -37,4 +37,6 @@ const BB_HANDS = SB_HANDS.concat(['93s','92s','83s','82s','72s','62s','Q6','96',
 
 const bbRange = make_range(BB_HANDS)
 
-export { utgRange, mpRange, coRange, btnRange, sbRange, bbRange }
+const ranges = [utgRange, mpRange, coRange, btnRange, sbRange, bbRange]
+
+export { ranges, utgRange }

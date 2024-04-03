@@ -1,28 +1,41 @@
 import React, { useState } from "react";
-import { Form, Row, Col } from "react-bootstrap";
+import { Row, Col, ButtonGroup, Button } from "react-bootstrap";
+import { ranges } from "./range_templates";
 
 function Position({ pos, setPos }) {
 
-    const handlePositionChange = (e) => {
-        setPos(e.target.value)
-    }    
+    const rangesLength = ranges.length
+    
+
+    const handleLeftClick = () => {
+        if (pos < 1) {
+            setPos(rangesLength - 1)
+        } else {setPos(current => current - 1)}
+        
+    }
+
+    const handleRightClick = () => {
+        if (pos >= rangesLength - 1) {
+            setPos(0)
+        } else {setPos(current => current + 1)}
+    }
+    
+    const rangeNames = ["UTG", "MP", "CO", "BTN", "SB", "BB"]
 
     return (
         <div>
             <Row  >
-                <Col className="d-flex" >
-                    <strong className="ms-auto"  >Position:</strong> 
+                <Col>                     
+                    <div className="text-end"  >Position:</div> 
+                    
                 </Col>
                 <Col>
-                <Form.Select onChange={handlePositionChange} aria-label="Default select example">
-                    <option>-</option>
-                    <option value="UTG">UTG</option>
-                    <option value="MP">MP</option>
-                    <option value="CO">CO</option>
-                    <option value="BTN">BTN</option>
-                    <option value="SB">SB</option>
-                    <option value="BB">BB</option>
-                </Form.Select>
+                    <ButtonGroup>
+                        <Button onClick={handleLeftClick} >{"<-"}</Button>
+                        <Button variant="info" disabled style={{width: "80px"}} >{rangeNames[pos]}</Button>
+                        <Button onClick={handleRightClick} >{"->"}</Button>
+                    </ButtonGroup>
+
                 </Col>
             </Row>
              
