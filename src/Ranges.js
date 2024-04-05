@@ -11,30 +11,30 @@ export default function Ranges() {
     const btns = [0,1,2,3,4,5]
 
     const handleRangeClick = (e) => {
-        console.log(e.target.value)
+        setSelectedRange(e.target.value)
     }
 
     console.log(ranges[selectedRange])
 
 
     return (
-        <div>
+        <div className="m-3" >
             <ButtonGroup className="m-3"  >
                 {btns.map(btn => {
                     return (
-                        <Button key={rangeNames[btn]} onClick={handleRangeClick} value={btn} >{rangeNames[btn]}</Button>
+                        <Button 
+                            disabled={selectedRange==btn} 
+                            key={rangeNames[btn]} 
+                            onClick={handleRangeClick} 
+                            value={btn} 
+                        >
+                            {rangeNames[btn]}
+                        </Button>
                     )
                 })}
             </ButtonGroup>
 
-            {/* <ButtonGroup>
-                <Button value={0}>UTG</Button>
-                <Button value={1}>MP</Button>
-                <Button value={2}>CO</Button>
-                <Button value={3}>BTN</Button>
-                <Button value={4}>SB</Button>
-                <Button value={5}>BB</Button>
-            </ButtonGroup> */}
+            <h3>Raise Range:</h3>
 
             <Table size="sm" variant="dark" bordered>
                 <tbody>
