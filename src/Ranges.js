@@ -23,7 +23,7 @@ export default function Ranges() {
                 {btns.map(btn => {
                     return (
                         <Button 
-                            disabled={selectedRange==btn} 
+                            disabled={selectedRange===btn} 
                             key={rangeNames[btn]} 
                             onClick={handleRangeClick} 
                             value={btn} 
