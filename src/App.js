@@ -10,8 +10,6 @@ import { make_blank } from './helpers';
 
 export default function App() {
 
-  const [custom, setCustom] = useState(make_blank)
-
   const router = createBrowserRouter([
     {
       element: <Layout />,
@@ -23,7 +21,7 @@ export default function App() {
         },
         {
           path: "/ranges",
-          element: <Ranges custom={custom} setCustom={setCustom} />
+          element: <Ranges  />
         }
       ]
     }
