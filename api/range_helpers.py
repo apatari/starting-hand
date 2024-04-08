@@ -35,14 +35,20 @@ def save_range():
         pickle.dump(test, fp)
         print('dict saved')
 
+def get_range():
+    with open('range_data.pkl', 'rb') as fp:
+        info = pickle.load(fp)
+        return(info)
+
 def update_range(hand):
     with open('range_data.pkl', 'rb') as fp:
         info = pickle.load(fp)
+
     with open('range_data.pkl', 'wb') as fp:
         if hand in info:
             info[hand] = not info[hand]
             pickle.dump(info, fp)
-            print(info)
+            
             print("dict updated")
         else:
             print('hand error')
@@ -50,7 +56,7 @@ def update_range(hand):
 
 
 if __name__ == '__main__':
-    update_range('22')
+    get_range()
 
     
 
