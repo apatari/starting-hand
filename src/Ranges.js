@@ -17,6 +17,18 @@ export default function Ranges({ custom, setCustom }) {
         
     }
 
+    const handleCellClick = (e) => {
+        const hand = e.target.id
+        fetch('/api/ranges', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({"hand": hand})
+        })
+        .then(res => res.json())
+        .then(data => setCustom(data))
+    }
 
 
     return (
@@ -59,7 +71,12 @@ export default function Ranges({ custom, setCustom }) {
                                 {row.map(hand => {
                                         
                                         if (selectedRange === "Custom") {
-                                            return ( <td key={hand} className={(custom[hand]===true)?"bg-info":""} >{hand}</td> )
+                                            return ( <td 
+                                                        key={hand} 
+                                                        className={(custom[hand]===true)?"bg-info":""} 
+                                                        onClick={handleCellClick}
+                                                        id={hand}
+                                                    >{hand}</td> )
                                         }
                                     
                                         if(ranges[selectedRange][hand]===true){
