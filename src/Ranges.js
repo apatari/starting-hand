@@ -4,7 +4,7 @@ import { Table, Button, ButtonGroup, Row, Col } from "react-bootstrap";
 import { ranges } from "./range_templates";
 
 
-export default function Ranges() {
+export default function Ranges({ custom, setCustom }) {
 
     const [selectedRange, setSelectedRange] = useState(0)
     
@@ -14,7 +14,7 @@ export default function Ranges() {
 
     const handleRangeClick = (e) => {
         setSelectedRange(e.target.value)
-        console.log(selectedRange)
+        
     }
 
 
@@ -28,7 +28,7 @@ export default function Ranges() {
                         {btns.map(btn => {
                             return (
                                 <Button 
-                                    disabled={selectedRange===btn} 
+                                    disabled={selectedRange==btn} 
                                     key={rangeNames[btn]} 
                                     onClick={handleRangeClick} 
                                     value={btn} 
@@ -43,7 +43,7 @@ export default function Ranges() {
 
                 <Col>
                         <div className="m-3" >
-                            <Button disabled >Custom</Button>
+                            <Button onClick={() => setSelectedRange("Custom")} >Custom</Button>
                         </div> 
                 </Col>
 
@@ -58,6 +58,9 @@ export default function Ranges() {
                             <tr key={row[0] + row[1]}  >
                                 {row.map(hand => {
                                         
+                                        if (selectedRange === "Custom") {
+                                            return ( <td key={hand} className={(custom[hand]===true)?"bg-info":""} >{hand}</td> )
+                                        }
                                     
                                         if(ranges[selectedRange][hand]===true){
                                             return (<td key={hand} className="bg-info" >{hand}</td>)

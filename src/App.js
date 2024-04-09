@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from './Layout';
@@ -9,6 +9,15 @@ import { make_blank } from './helpers';
 
 
 export default function App() {
+  const [custom, setCustom] = useState({})
+
+  useEffect(() => {
+    fetch('/api/ranges')
+    .then(res => res.json())
+    .then(data => setCustom(data))
+    
+    
+  }, [])
 
   const router = createBrowserRouter([
     {
@@ -21,7 +30,7 @@ export default function App() {
         },
         {
           path: "/ranges",
-          element: <Ranges  />
+          element: <Ranges custom={custom} setCustom={setCustom} />
         }
       ]
     }

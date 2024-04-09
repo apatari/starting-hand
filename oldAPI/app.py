@@ -1,15 +1,17 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify, make_response
+from flask_cors import CORS
 from range_helpers import update_range, get_range
+import json
 
 app = Flask(__name__)
+CORS(app)
 
-@app.route("/")
-def hello_world():
-    return ("Hello world")
 
-@app.route('/custom', methods=['POST','GET'])
+
+@app.route('/api/ranges', methods=['POST','GET'])
 def custom():
     if request.method == 'GET':
+        
         return get_range(), 200
     else:
         hand = request.get_json()['hand']
@@ -19,4 +21,4 @@ def custom():
 
 
 if __name__ == '__main__':
-    app.run(debug = True)
+    app.run(port=5000, debug = True)

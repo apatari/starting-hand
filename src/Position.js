@@ -4,6 +4,7 @@ import { ranges } from "./range_templates";
 
 function Position({ pos, setPos, randomize }) {
 
+
     const RANGES_LENGTH = 6
     
 

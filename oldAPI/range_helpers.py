@@ -1,4 +1,5 @@
 import pickle
+import json
 
 all_hands = [
     "AA", "AKs", "AQs", "AJs", "A0s", "A9s", "A8s", "A7s", "A6s", "A5s", "A4s", "A3s", "A2s",
@@ -38,7 +39,7 @@ def save_range():
 def get_range():
     with open('range_data.pkl', 'rb') as fp:
         info = pickle.load(fp)
-        return(info)
+        return(json.dumps(info))
 
 def update_range(hand):
     with open('range_data.pkl', 'rb') as fp:
