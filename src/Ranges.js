@@ -43,7 +43,7 @@ export default function Ranges({ custom, setCustom }) {
 
                 <Col>
                         <div className="m-3" >
-                            <Button onClick={() => setSelectedRange("Custom")} >Custom</Button>
+                            <Button disabled={selectedRange==="Custom"}  onClick={() => setSelectedRange("Custom")} >Custom</Button>
                         </div> 
                 </Col>
 
