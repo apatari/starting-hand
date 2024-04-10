@@ -16,6 +16,7 @@ function Practice() {
     const [streak, setStreak] = useState(0)
     const [pos, setPos] = useState(0)
     const [randomize, setRandomize] = useState(false)
+    const [usingCustom, setUsingCustom] = useState(false)
 
     const RANGES_LENGTH = 6
 
@@ -48,6 +49,10 @@ function Practice() {
     const handleRandomizeClick = () => {
         setRandomize(current => !current)
     }
+
+    const handleCustomRangeClick = () => {
+        setUsingCustom(current => !current)
+    }
     
 
     return (
@@ -57,8 +62,8 @@ function Practice() {
                     <h2 className='m-3' >Starting Hand Practice - 6max</h2>
                 </Row>
                 <Row className='p-2 fs-5' >
-                    <Col md={1}></Col>
-                    <Col className='d-flex' md={1} >
+                   
+                    <Col className='ms-3  d-flex' md={1} >
                         <div className=' my-auto'>
 
                             <Button className='ms-auto' onClick={handleDrawClick} >Draw</Button>
@@ -74,15 +79,15 @@ function Practice() {
                             onChange={handleRandomizeClick}
                         />
                     </Col>
-                    <Col md={2} >
-                        Current Streak: {streak}
-                        
+                    <Col md={2}>
+                        <Button onClick={handleCustomRangeClick} >Custom Range</Button>
                     </Col>
+                    
                     
                     
                 </Row>
                 <Row className='p-2 m-3' >
-                    <Col md={2} ></Col>
+                    <Col md={1} ></Col>
                     <Col >
                         <Row className='bg-warning' >  
                         <Col>
@@ -104,6 +109,10 @@ function Practice() {
                         </Row>
                         
                         <Row><CardDisplay cards={cards} /></Row>
+                        <Row>
+                        Current Streak: {streak}
+                        
+                        </Row>
  
                     </Col>
                     <Col md={5}></Col>
