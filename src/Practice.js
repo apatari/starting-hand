@@ -70,7 +70,7 @@ function Practice() {
                         </div>
                     </Col>
                     <Col  className='' md={4} >
-                        <Position pos={pos} setPos={setPos} randomize={randomize}/> 
+                        <Position usingCustom={usingCustom} pos={pos} setPos={setPos} randomize={randomize}/> 
                     </Col>
                     <Col md={3}  >
                         <Form.Switch 
@@ -80,7 +80,10 @@ function Practice() {
                         />
                     </Col>
                     <Col md={2}>
-                        <Button onClick={handleCustomRangeClick} >Custom Range</Button>
+                        {usingCustom
+                        ? <Button onClick={handleCustomRangeClick} variant='secondary' >Custom Range</Button>
+                        :<Button onClick={handleCustomRangeClick}  >Custom Range</Button>}
+                        
                     </Col>
                     
                     
@@ -110,7 +113,7 @@ function Practice() {
                         
                         <Row><CardDisplay cards={cards} /></Row>
                         <Row>
-                        Current Streak: {streak}
+                            Current Streak: {streak}
                         
                         </Row>
  
