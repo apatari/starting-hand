@@ -26,7 +26,7 @@ export default function App() {
       children: [
         {
           path: "/",
-          element: <Practice />
+          element: <Practice custom={custom} />
         },
         {
           path: "/ranges",

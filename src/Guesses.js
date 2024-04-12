@@ -4,12 +4,14 @@ import { make_blank } from "./helpers";
 import { ranges } from "./range_templates";
 
 
-function Guesses({ cards, setResult, show, setShowGuessButtons, pos, setStreak }) {
+function Guesses({ cards, setResult, show, setShowGuessButtons, pos, setStreak, usingCustom, custom }) {
 
     const range_template = make_blank()
 
     const shouldRaise = () => {
+
         let pairCode = cards[0].code[0] + cards[1].code[0]
+
         if (!Object.keys(range_template).includes(pairCode)) {
             pairCode = pairCode[1] + pairCode[0]
             
@@ -18,6 +20,12 @@ function Guesses({ cards, setResult, show, setShowGuessButtons, pos, setStreak }
         if (cards[0].suit === cards[1].suit) {
             pairCode += 's'
         }
+
+        if (custom) {
+    
+            return custom[pairCode]
+        }
+
         return (ranges[pos][pairCode])
     }
 

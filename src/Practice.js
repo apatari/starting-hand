@@ -7,7 +7,7 @@ import CardDisplay from './practiceComps/CardDisplay';
 import Guesses from './Guesses';
 import Position from './Position';
 
-function Practice() {
+function Practice({ custom }) {
 
     const [cards, setCards] = useState([])
     const [deckId, setDeckId] = useState("")
@@ -103,6 +103,8 @@ function Practice() {
                                 streak={streak}
                                 setStreak={setStreak}
                                 pos={pos}
+                                usingCustom={usingCustom}
+                                custom={custom}
                                 />  
                         </Col>
                         <Col>
