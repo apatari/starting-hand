@@ -21,8 +21,8 @@ function Guesses({ cards, setResult, show, setShowGuessButtons, pos, setStreak, 
             pairCode += 's'
         }
 
-        if (custom) {
-    
+        if (usingCustom) {
+            
             return custom[pairCode]
         }
 
